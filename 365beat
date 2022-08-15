@@ -1,10 +1,6 @@
 output.logstash:
   hosts: ["xx.xx.xx.xx:5044"]  
   
-setup.template.name: "o365"
-setup.template.pattern: "o365"
-setup.ilm.enabled: false
-
 filebeat.modules:
 - module: o365
   audit:
