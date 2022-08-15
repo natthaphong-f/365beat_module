@@ -1,0 +1,22 @@
+output.logstash:
+  hosts: ["xx.xx.xx.xx:5044"]  
+  
+setup.template.name: "o365"
+setup.template.pattern: "o365"
+setup.ilm.enabled: false
+
+filebeat.modules:
+- module: o365
+  audit:
+    enabled: true
+    # Set the application_id (also known as client ID):
+    var.application_id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+
+    # Configure the tenants to monitor:
+    # Use the tenant ID (also known as directory ID) and the domain name.
+    var.tenants:
+     - id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
+       name: "ccccccccccccccccccccccc"
+
+    # Client-secret based authentication:
+    var.client_secret: "dddddddddddddddddddddddddddddddddddddddd"
